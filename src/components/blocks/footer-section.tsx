@@ -21,7 +21,7 @@ export default function FooterSection() {
               </span>
             </a>
             <p className="mt-4 text-sm text-white/40 leading-relaxed max-w-xs text-center md:text-left">
-              Your home in the hills. Experience the warmth of Indian hospitality
+              Experience the warmth of hospitality
               amidst the spiritual serenity of Jwalamukhi.
             </p>
           </div>
@@ -54,11 +54,12 @@ export default function FooterSection() {
               </div>
               <div className="flex items-center gap-2.5 text-sm text-white/40">
                 <Phone className="size-3.5 text-amber-400/50 shrink-0" />
-                <span>+91 XXXXX XXXXX</span>
+                <span>+91 94185 69661</span> |
+                <span>+91 94183 92661</span>
               </div>
               <div className="flex items-center gap-2.5 text-sm text-white/40">
                 <Mail className="size-3.5 text-amber-400/50 shrink-0" />
-                <span>info@hotelyamuna.com</span>
+                <span>hotelyamunajwalamukhi08@gmail.com</span>
               </div>
             </div>
           </div>

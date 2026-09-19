@@ -207,7 +207,7 @@ export default function EnquireSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label htmlFor="name" className={labelClass}>
-                        Full Name *
+                        Full Name <span className="text-red-600">*</span>
                       </label>
                       <div className="relative">
                         <User className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-white/20" />
@@ -225,7 +225,7 @@ export default function EnquireSection() {
                     </div>
                     <div>
                       <label htmlFor="phone" className={labelClass}>
-                        Phone Number *
+                        Phone Number <span className="text-red-600">*</span>
                       </label>
                       <div className="relative">
                         <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-white/20" />
@@ -264,7 +264,7 @@ export default function EnquireSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label htmlFor="checkin" className={labelClass}>
-                        Check-in Date *
+                        Check-in Date <span className="text-red-600">*</span>
                       </label>
                       <div className="relative">
                         <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-white/20" />
@@ -281,7 +281,7 @@ export default function EnquireSection() {
                     </div>
                     <div>
                       <label htmlFor="checkout" className={labelClass}>
-                        Check-out Date *
+                        Check-out Date <span className="text-red-600">*</span>
                       </label>
                       <div className="relative">
                         <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-white/20" />
