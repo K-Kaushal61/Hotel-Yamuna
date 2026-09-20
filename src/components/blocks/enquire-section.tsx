@@ -120,8 +120,10 @@ export default function EnquireSection() {
     }, 5000)
   }
 
-  const inputClass =
-    "w-full min-w-0 max-w-full rounded-xl border border-stone-200 bg-stone-50/70 px-3.5 sm:px-4 py-3 text-sm text-stone-900 placeholder-stone-400 outline-none transition-all duration-200 focus:border-[#8C6A3C] focus:bg-white focus:ring-2 focus:ring-[#8C6A3C]/20 box-border block"
+  const inputBaseClass =
+    "w-full min-w-0 max-w-full rounded-xl border border-stone-200 bg-stone-50/70 py-3 text-sm text-stone-900 placeholder-stone-400 outline-none transition-all duration-200 focus:border-[#8C6A3C] focus:bg-white focus:ring-2 focus:ring-[#8C6A3C]/20 box-border block"
+  const inputClass = `${inputBaseClass} px-3.5 sm:px-4`
+  const inputWithIconClass = `${inputBaseClass} pl-11 pr-3.5 sm:pr-4`
   const labelClass = "block text-xs font-semibold text-stone-700 mb-1.5 tracking-wider uppercase"
 
   return (
@@ -177,7 +179,7 @@ export default function EnquireSection() {
                           placeholder="Your full name"
                           value={form.name}
                           onChange={handleChange}
-                          className={`${inputClass} pl-10`}
+                          className={inputWithIconClass}
                         />
                       </div>
                     </div>
@@ -195,7 +197,7 @@ export default function EnquireSection() {
                           placeholder="+91 XXXXX XXXXX"
                           value={form.phone}
                           onChange={handleChange}
-                          className={`${inputClass} pl-10`}
+                          className={inputWithIconClass}
                         />
                       </div>
                     </div>
@@ -214,7 +216,7 @@ export default function EnquireSection() {
                         placeholder="your@email.com (optional)"
                         value={form.email}
                         onChange={handleChange}
-                        className={`${inputClass} pl-10`}
+                        className={inputWithIconClass}
                       />
                     </div>
                   </div>
@@ -233,7 +235,7 @@ export default function EnquireSection() {
                           required
                           value={form.checkin}
                           onChange={handleChange}
-                          className={`${inputClass} pl-10`}
+                          className={inputWithIconClass}
                         />
                       </div>
                     </div>
@@ -250,7 +252,7 @@ export default function EnquireSection() {
                           required
                           value={form.checkout}
                           onChange={handleChange}
-                          className={`${inputClass} pl-10`}
+                          className={inputWithIconClass}
                         />
                       </div>
                     </div>
@@ -295,7 +297,7 @@ export default function EnquireSection() {
                           max="20"
                           value={form.guests}
                           onChange={handleChange}
-                          className={`${inputClass} pl-10`}
+                          className={inputWithIconClass}
                         />
                       </div>
                     </div>

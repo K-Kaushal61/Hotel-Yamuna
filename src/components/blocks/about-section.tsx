@@ -134,7 +134,7 @@ export default function AboutPage() {
               href="https://www.google.com/maps/search/Hotel+Yamuna+Jwalamukhi+Himachal+Pradesh"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-xl bg-stone-900 px-6 py-3.5 text-sm font-semibold text-white uppercase tracking-wider transition-all duration-200 hover:bg-stone-800 active:scale-95 shadow-xs group"
+              className="flex items-center justify-center gap-2 rounded-xl bg-[#8C6A3C] px-6 py-3.5 text-sm font-semibold text-white uppercase tracking-wider transition-all duration-200 hover:bg-[#785930] active:scale-95 shadow-xs group"
             >
               Navigate to Hotel
               <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
