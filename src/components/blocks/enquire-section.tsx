@@ -17,18 +17,18 @@ const WHATSAPP_NUMBER = "919418569661"
 const WEB3FORMS_KEY = ""
 
 const roomOptions = [
-  "Standard — Double Bed (AC)",
-  "Standard — Double Bed (Non-AC)",
-  "Standard — Triple Bed (AC)",
-  "Standard — Triple Bed (Non-AC)",
-  "Standard — Four Bed (AC)",
-  "Standard — Four Bed (Non-AC)",
   "Deluxe — Double Bed (AC)",
   "Deluxe — Double Bed (Non-AC)",
   "Deluxe — Triple Bed (AC)",
   "Deluxe — Triple Bed (Non-AC)",
   "Deluxe — Four Bed (AC)",
   "Deluxe — Four Bed (Non-AC)",
+  "Standard — Double Bed (AC)",
+  "Standard — Double Bed (Non-AC)",
+  "Standard — Triple Bed (AC)",
+  "Standard — Triple Bed (Non-AC)",
+  "Standard — Four Bed (AC)",
+  "Standard — Four Bed (Non-AC)",
 ]
 
 export default function EnquireSection() {
@@ -121,15 +121,15 @@ export default function EnquireSection() {
   }
 
   const inputClass =
-    "w-full rounded-xl border border-stone-200 bg-stone-50/70 px-4 py-3 text-sm text-stone-900 placeholder-stone-400 outline-none transition-all duration-200 focus:border-[#8C6A3C] focus:bg-white focus:ring-2 focus:ring-[#8C6A3C]/20"
+    "w-full min-w-0 max-w-full rounded-xl border border-stone-200 bg-stone-50/70 px-3.5 sm:px-4 py-3 text-sm text-stone-900 placeholder-stone-400 outline-none transition-all duration-200 focus:border-[#8C6A3C] focus:bg-white focus:ring-2 focus:ring-[#8C6A3C]/20 box-border block"
   const labelClass = "block text-xs font-semibold text-stone-700 mb-1.5 tracking-wider uppercase"
 
   return (
     <section
       id="enquire"
-      className="relative bg-[#F4F0E8] py-20 md:py-28 overflow-hidden border-t border-stone-200/60"
+      className="relative bg-[#F4F0E8] py-20 md:py-28 overflow-hidden border-t border-stone-200/60 w-full max-w-full"
     >
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full min-w-0">
         <div className="text-center mb-12">
           <span className="text-xs font-semibold tracking-[0.25em] text-[#8C6A3C] uppercase">
             Get in Touch
@@ -144,9 +144,9 @@ export default function EnquireSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10">
-          <div className="lg:col-span-3">
-            <div className="rounded-2xl border border-stone-200 bg-white shadow-sm p-6 md:p-8">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 w-full min-w-0">
+          <div className="lg:col-span-3 w-full min-w-0">
+            <div className="rounded-2xl border border-stone-200 bg-white shadow-sm p-4 sm:p-6 md:p-8 w-full min-w-0 overflow-hidden">
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-16 text-center">
                   <div className="flex items-center justify-center size-16 rounded-full bg-green-100 border border-green-200 mb-5">
@@ -161,14 +161,14 @@ export default function EnquireSection() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 w-full min-w-0">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 w-full min-w-0">
+                    <div className="w-full min-w-0">
                       <label htmlFor="name" className={labelClass}>
                         Full Name <span className="text-red-600">*</span>
                       </label>
-                      <div className="relative">
-                        <User className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-stone-400" />
+                      <div className="relative w-full min-w-0">
+                        <User className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-stone-400 pointer-events-none" />
                         <input
                           id="name"
                           name="name"
@@ -181,12 +181,12 @@ export default function EnquireSection() {
                         />
                       </div>
                     </div>
-                    <div>
+                    <div className="w-full min-w-0">
                       <label htmlFor="phone" className={labelClass}>
                         Phone Number <span className="text-red-600">*</span>
                       </label>
-                      <div className="relative">
-                        <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-stone-400" />
+                      <div className="relative w-full min-w-0">
+                        <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-stone-400 pointer-events-none" />
                         <input
                           id="phone"
                           name="phone"
@@ -201,12 +201,12 @@ export default function EnquireSection() {
                     </div>
                   </div>
 
-                  <div>
+                  <div className="w-full min-w-0">
                     <label htmlFor="email" className={labelClass}>
                       Email Address
                     </label>
-                    <div className="relative">
-                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-stone-400" />
+                    <div className="relative w-full min-w-0">
+                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-stone-400 pointer-events-none" />
                       <input
                         id="email"
                         name="email"
@@ -219,13 +219,13 @@ export default function EnquireSection() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 w-full min-w-0">
+                    <div className="w-full min-w-0">
                       <label htmlFor="checkin" className={labelClass}>
                         Check-in Date <span className="text-red-600">*</span>
                       </label>
-                      <div className="relative">
-                        <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-stone-400" />
+                      <div className="relative w-full min-w-0">
+                        <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-stone-400 pointer-events-none" />
                         <input
                           id="checkin"
                           name="checkin"
@@ -237,12 +237,12 @@ export default function EnquireSection() {
                         />
                       </div>
                     </div>
-                    <div>
+                    <div className="w-full min-w-0">
                       <label htmlFor="checkout" className={labelClass}>
                         Check-out Date <span className="text-red-600">*</span>
                       </label>
-                      <div className="relative">
-                        <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-stone-400" />
+                      <div className="relative w-full min-w-0">
+                        <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-stone-400 pointer-events-none" />
                         <input
                           id="checkout"
                           name="checkout"
@@ -256,8 +256,8 @@ export default function EnquireSection() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 w-full min-w-0">
+                    <div className="w-full min-w-0">
                       <label htmlFor="roomType" className={labelClass}>
                         Room Preference
                       </label>
@@ -281,12 +281,12 @@ export default function EnquireSection() {
                         ))}
                       </select>
                     </div>
-                    <div>
+                    <div className="w-full min-w-0">
                       <label htmlFor="guests" className={labelClass}>
                         Number of Guests
                       </label>
-                      <div className="relative">
-                        <Users className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-stone-400" />
+                      <div className="relative w-full min-w-0">
+                        <Users className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-stone-400 pointer-events-none" />
                         <input
                           id="guests"
                           name="guests"
@@ -301,7 +301,7 @@ export default function EnquireSection() {
                     </div>
                   </div>
 
-                  <div>
+                  <div className="w-full min-w-0">
                     <label htmlFor="message" className={labelClass}>
                       Additional Message
                     </label>

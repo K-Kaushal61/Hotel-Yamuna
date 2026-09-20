@@ -23,6 +23,40 @@ type RoomCategory = {
 
 const roomCategories: RoomCategory[] = [
   {
+    name: "Deluxe",
+    tagline: "Premium Luxury",
+    description:
+      "Indulge in our finest rooms with premium furnishings, elegant interiors, AC/Non-AC options, and top-tier amenities for a rejuvenating stay.",
+    coverImage: "/deluxe-doublebed.jpeg",
+    washroom: ["/deluxe-washroom.jpeg", "/deluxe-washroom2.jpeg"],
+    subCategories: [
+      {
+        name: "double",
+        label: "Double Bed",
+        icon: Bed,
+        description: "Elegant double bed room with premium furnishings, AC/Non-AC options, and luxurious bath amenities.",
+        images: ["/deluxe-doublebed.jpeg", "/deluxe-doublebed2.jpeg"],
+        features: ["King Bed", "AC & Non-AC Available", "Premium Bath", "Room Service", "Mountain View"],
+      },
+      {
+        name: "triple",
+        label: "Triple Bed",
+        icon: Users,
+        description: "Spacious deluxe triple room — perfect for families who appreciate extra comfort and fine decor.",
+        images: ["/deluxe-triplebed.jpeg"],
+        features: ["Three Beds", "AC & Non-AC Available", "Premium Bath", "Room Service"],
+      },
+      {
+        name: "four",
+        label: "Four Bed",
+        icon: Users,
+        description: "Our largest deluxe offering with four beds, ideal for group pilgrimages or family gatherings.",
+        images: ["/deluxe-fourbed.jpeg"],
+        features: ["Four Beds", "AC & Non-AC Available", "Premium Bath", "Room Service"],
+      },
+    ],
+  },
+  {
     name: "Standard",
     tagline: "Elevated Comfort",
     description:
@@ -53,40 +87,6 @@ const roomCategories: RoomCategory[] = [
         description: "Spacious four-bed standard room with modern amenities — great for families and pilgrim groups.",
         images: ["/standard-doublebed.jpeg", "/gallery-view.jpeg"],
         features: ["Four Beds", "AC & Non-AC Available", "Flat-Screen TV", "Wi-Fi", "Attached Bath", "Room Service"],
-      },
-    ],
-  },
-  {
-    name: "Deluxe",
-    tagline: "Premium Luxury",
-    description:
-      "Indulge in our finest rooms with premium furnishings, elegant interiors, AC/Non-AC options, and top-tier amenities for a rejuvenating stay.",
-    coverImage: "/deluxe-doublebed.jpeg",
-    washroom: ["/deluxe-washroom.jpeg", "/deluxe-washroom2.jpeg"],
-    subCategories: [
-      {
-        name: "double",
-        label: "Double Bed",
-        icon: Bed,
-        description: "Elegant double bed room with premium furnishings, AC/Non-AC options, and luxurious bath amenities.",
-        images: ["/deluxe-doublebed.jpeg", "/deluxe-doublebed2.jpeg"],
-        features: ["King Bed", "AC & Non-AC Available", "Premium Bath", "Mini Bar", "Room Service", "Mountain View"],
-      },
-      {
-        name: "triple",
-        label: "Triple Bed",
-        icon: Users,
-        description: "Spacious deluxe triple room — perfect for families who appreciate extra comfort and fine decor.",
-        images: ["/deluxe-triplebed.jpeg"],
-        features: ["Three Beds", "AC & Non-AC Available", "Premium Bath", "Room Service", "Lounge Area"],
-      },
-      {
-        name: "four",
-        label: "Four Bed",
-        icon: Users,
-        description: "Our largest deluxe offering with four beds, ideal for group pilgrimages or family gatherings.",
-        images: ["/deluxe-fourbed.jpeg"],
-        features: ["Four Beds", "AC & Non-AC Available", "Premium Bath", "Room Service", "Lounge Area"],
       },
     ],
   },
