@@ -28,6 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <head>
         <link rel="preload" href="/outer-video.mp4" as="video" type="video/mp4" />
+        <meta name="google-site-verification" content="BwO1Miy7f7thrUoJwDa-ReUYGZJRffVBdXY9d2wBJKs" />
       </head>
       <body className="min-h-full flex flex-col bg-[#FAF8F5] text-stone-900">{children}</body>
     </html>
