@@ -26,6 +26,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
     >
+      <head>
+        <link rel="preload" href="/outer-video.mp4" as="video" type="video/mp4" />
+      </head>
       <body className="min-h-full flex flex-col bg-[#FAF8F5] text-stone-900">{children}</body>
     </html>
   );

@@ -35,7 +35,7 @@ const galleryMedia: MediaItem[] = [
     title: "Outdoor & Property Video Tour",
     category: "videos",
     tag: "Video Tour",
-    src: "/outer-video.MOV",
+    src: "/outer-video.mp4",
     thumbnail: "/hotel-cover.jpeg",
     description: "Live outdoor walkthrough showcasing Hotel Yamuna's architecture, serene hill surroundings, and premises.",
   },
@@ -143,6 +143,8 @@ export default function GallerySection() {
     const video = featuredVideoRef.current
     if (!video) return
 
+    video.load()
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -152,8 +154,10 @@ export default function GallerySection() {
           })
           setIsFeaturedPlaying(true)
         } else {
-          video.pause()
-          setIsFeaturedPlaying(false)
+          if (!video.paused) {
+            video.pause()
+            setIsFeaturedPlaying(false)
+          }
         }
       },
       { threshold: 0.15 }
@@ -316,14 +320,14 @@ export default function GallerySection() {
 
                 <video
                   ref={featuredVideoRef}
-                  preload="metadata"
+                  preload="auto"
                   muted={isFeaturedMuted}
                   loop
                   playsInline
                   poster="/hotel-cover.jpeg"
                   className="h-full w-full object-cover transform-gpu"
                 >
-                  <source src="/outer-video.MOV" type="video/mp4" />
+                  <source src="/outer-video.mp4" type="video/mp4" />
                   <source src="/outer-video.MOV" type="video/quicktime" />
                   Your browser does not support the video tag.
                 </video>

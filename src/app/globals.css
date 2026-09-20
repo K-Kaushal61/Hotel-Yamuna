@@ -133,6 +133,10 @@
   }
 
   input[type="date"] {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    display: block !important;
     min-width: 0 !important;
     max-width: 100% !important;
     width: 100% !important;
@@ -141,7 +145,13 @@
   }
   input[type="date"]::-webkit-date-and-time-value {
     text-align: left;
-    min-height: 1.25em;
+    min-height: 1.4em;
+    height: 1.4em;
+    line-height: 1.4em;
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 100%;
   }
   input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;

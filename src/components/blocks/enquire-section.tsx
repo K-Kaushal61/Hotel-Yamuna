@@ -121,7 +121,7 @@ export default function EnquireSection() {
   }
 
   const inputBaseClass =
-    "w-full min-w-0 max-w-full rounded-xl border border-stone-200 bg-stone-50/70 py-3 text-sm text-stone-900 placeholder-stone-400 outline-none transition-all duration-200 focus:border-[#8C6A3C] focus:bg-white focus:ring-2 focus:ring-[#8C6A3C]/20 box-border block"
+    "w-full min-w-0 max-w-full rounded-xl border border-stone-200 bg-stone-50/70 py-3 text-sm text-stone-900 placeholder-stone-400 outline-none transition-all duration-200 focus:border-[#8C6A3C] focus:bg-white focus:ring-2 focus:ring-[#8C6A3C]/20 box-border block appearance-none"
   const inputClass = `${inputBaseClass} px-3.5 sm:px-4`
   const inputWithIconClass = `${inputBaseClass} pl-11 pr-3.5 sm:pr-4`
   const labelClass = "block text-xs font-semibold text-stone-700 mb-1.5 tracking-wider uppercase"
@@ -221,13 +221,13 @@ export default function EnquireSection() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 w-full min-w-0">
-                    <div className="w-full min-w-0">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 w-full min-w-0 max-w-full">
+                    <div className="w-full min-w-0 max-w-full">
                       <label htmlFor="checkin" className={labelClass}>
                         Check-in Date <span className="text-red-600">*</span>
                       </label>
-                      <div className="relative w-full min-w-0">
-                        <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-stone-400 pointer-events-none" />
+                      <div className="relative w-full min-w-0 max-w-full overflow-hidden rounded-xl">
+                        <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-stone-400 pointer-events-none z-10" />
                         <input
                           id="checkin"
                           name="checkin"
@@ -236,15 +236,23 @@ export default function EnquireSection() {
                           value={form.checkin}
                           onChange={handleChange}
                           className={inputWithIconClass}
+                          style={{
+                            WebkitAppearance: "none",
+                            MozAppearance: "none",
+                            appearance: "none",
+                            width: "100%",
+                            maxWidth: "100%",
+                            minWidth: 0,
+                          }}
                         />
                       </div>
                     </div>
-                    <div className="w-full min-w-0">
+                    <div className="w-full min-w-0 max-w-full">
                       <label htmlFor="checkout" className={labelClass}>
                         Check-out Date <span className="text-red-600">*</span>
                       </label>
-                      <div className="relative w-full min-w-0">
-                        <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-stone-400 pointer-events-none" />
+                      <div className="relative w-full min-w-0 max-w-full overflow-hidden rounded-xl">
+                        <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-stone-400 pointer-events-none z-10" />
                         <input
                           id="checkout"
                           name="checkout"
@@ -253,6 +261,14 @@ export default function EnquireSection() {
                           value={form.checkout}
                           onChange={handleChange}
                           className={inputWithIconClass}
+                          style={{
+                            WebkitAppearance: "none",
+                            MozAppearance: "none",
+                            appearance: "none",
+                            width: "100%",
+                            maxWidth: "100%",
+                            minWidth: 0,
+                          }}
                         />
                       </div>
                     </div>
