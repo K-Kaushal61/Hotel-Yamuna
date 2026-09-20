@@ -1,7 +1,6 @@
 "use client"
 
 import { MapPin, Clock, ArrowRight } from "lucide-react"
-import { useEffect, useRef, useState } from "react"
 
 const places = [
   {
@@ -30,68 +29,47 @@ const places = [
   },
 ]
 
-function PlaceCard({ place, index }: { place: (typeof places)[0]; index: number }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.15 }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [])
-
+function PlaceCard({ place }: { place: (typeof places)[0] }) {
   return (
-    <div
-      ref={ref}
-      className={`group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm transition-all duration-700 hover:border-amber-400/20 hover:bg-white/[0.04] ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-      }`}
-      style={{ transitionDelay: `${index * 200}ms` }}
-    >
-      <div className="relative h-64 overflow-hidden">
+    <div className="group relative overflow-hidden rounded-2xl border border-stone-200/90 bg-white shadow-xs hover:shadow-md">
+      <div className="relative h-60 overflow-hidden">
         <img
           src={place.image}
           alt={place.name}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          loading="lazy"
+          decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-        <div className="absolute top-4 right-4 flex items-center gap-1.5 rounded-full bg-amber-400/90 px-3.5 py-1.5 shadow-lg">
-          <MapPin className="size-3.5 text-neutral-900" />
-          <span className="text-xs font-bold text-neutral-900">{place.distance}</span>
+        <div className="absolute top-3.5 right-3.5 flex items-center gap-1.5 rounded-full bg-stone-900/85 backdrop-blur-xs px-3 py-1 text-white shadow-sm">
+          <MapPin className="size-3 text-[#E5C158]" />
+          <span className="text-xs font-semibold tracking-wide">{place.distance}</span>
         </div>
 
         <div className="absolute bottom-4 left-5 right-5">
-          <h3 className="text-2xl font-bold text-white tracking-tight">
+          <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
             {place.name}
           </h3>
-          <div className="mt-1 flex items-center gap-1.5 text-white/60">
-            <Clock className="size-3" />
-            <span className="text-xs">{place.driveTime} drive from hotel</span>
+          <div className="mt-1 flex items-center gap-1.5 text-white/80">
+            <Clock className="size-3 text-[#E5C158]" />
+            <span className="text-xs font-medium">{place.driveTime} drive from hotel</span>
           </div>
         </div>
       </div>
 
       <div className="p-6">
-        <p className="text-white/55 text-sm leading-relaxed">
+        <p className="text-stone-600 text-sm leading-relaxed line-clamp-4">
           {place.description}
         </p>
         <a
           href={`https://www.google.com/maps/search/${encodeURIComponent(place.name)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-amber-400/80 transition-all duration-300 hover:text-amber-300 hover:gap-3 group/link"
+          className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#8C6A3C] transition-all duration-200 hover:text-[#785930] hover:gap-3 group/link"
         >
-          View on Maps
-          <ArrowRight className="size-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
+          View on Google Maps
+          <ArrowRight className="size-3.5 transition-transform duration-200 group-hover/link:translate-x-1" />
         </a>
       </div>
     </div>
@@ -99,55 +77,25 @@ function PlaceCard({ place, index }: { place: (typeof places)[0]; index: number 
 }
 
 export default function NearbyPlacesSection() {
-  const headingRef = useRef<HTMLDivElement>(null)
-  const [headingVisible, setHeadingVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHeadingVisible(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.3 }
-    )
-    if (headingRef.current) observer.observe(headingRef.current)
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <section id="nearby" className="relative bg-neutral-900 py-24 md:py-32 overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-amber-400/[0.02] blur-3xl pointer-events-none" />
-
+    <section id="nearby" className="relative bg-[#F4F0E8] py-20 md:py-28 overflow-hidden border-t border-stone-200/60">
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <div
-          ref={headingRef}
-          className={`text-center mb-16 transition-all duration-1000 ${
-            headingVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <span className="text-xs font-light tracking-[0.6em] text-amber-400/70 uppercase">
+        <div className="text-center mb-12">
+          <span className="text-xs font-semibold tracking-[0.25em] text-[#8C6A3C] uppercase">
             Explore
           </span>
-          <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+          <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold text-stone-900 tracking-tight">
             Nearby Attractions
           </h2>
-          <div className="mt-4 mx-auto flex items-center justify-center gap-3">
-            <span className="h-px w-12 bg-gradient-to-r from-transparent to-amber-400/50" />
-            <svg className="size-2.5 text-amber-400/60" viewBox="0 0 12 12" fill="currentColor">
-              <rect x="2" y="2" width="8" height="8" rx="1" transform="rotate(45 6 6)" />
-            </svg>
-            <span className="h-px w-12 bg-gradient-to-l from-transparent to-amber-400/50" />
-          </div>
-          <p className="mt-6 mx-auto max-w-2xl text-white/50 text-base leading-relaxed">
+          <div className="mt-3 mx-auto h-0.5 w-12 bg-[#8C6A3C]/40 rounded-full" />
+          <p className="mt-4 mx-auto max-w-2xl text-stone-600 text-base leading-relaxed">
             Strategically located near sacred temples and key landmarks, Hotel Yamuna is your perfect base to explore the spiritual and cultural heart of Himachal Pradesh.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {places.map((place, i) => (
-            <PlaceCard key={place.name} place={place} index={i} />
+          {places.map((place) => (
+            <PlaceCard key={place.name} place={place} />
           ))}
         </div>
       </div>

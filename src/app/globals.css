@@ -49,38 +49,38 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --background: #FAF8F5;
+  --foreground: #1C1917;
+  --card: #FFFFFF;
+  --card-foreground: #1C1917;
+  --popover: #FFFFFF;
+  --popover-foreground: #1C1917;
+  --primary: #1C1917;
+  --primary-foreground: #FAF8F5;
+  --secondary: #F3EFEA;
+  --secondary-foreground: #1C1917;
+  --muted: #F3EFEA;
+  --muted-foreground: #57534E;
+  --accent: #F3EFEA;
+  --accent-foreground: #1C1917;
+  --destructive: #DC2626;
+  --border: #E7E2D9;
+  --input: #E7E2D9;
+  --ring: #8C6A3C;
+  --chart-1: #8C6A3C;
+  --chart-2: #44403C;
+  --chart-3: #78716C;
+  --chart-4: #A8A29E;
+  --chart-5: #D6D3D1;
+  --radius: 0.75rem;
+  --sidebar: #FAF8F5;
+  --sidebar-foreground: #1C1917;
+  --sidebar-primary: #1C1917;
+  --sidebar-primary-foreground: #FAF8F5;
+  --sidebar-accent: #F3EFEA;
+  --sidebar-accent-foreground: #1C1917;
+  --sidebar-border: #E7E2D9;
+  --sidebar-ring: #8C6A3C;
 }
 
 .dark {
@@ -126,5 +126,9 @@
   }
   html {
     @apply font-sans;
+  }
+  ::selection {
+    background-color: #E7DFD5;
+    color: #1C1917;
   }
 }

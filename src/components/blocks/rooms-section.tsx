@@ -23,70 +23,36 @@ type RoomCategory = {
 
 const roomCategories: RoomCategory[] = [
   {
-    name: "Ordinary",
-    tagline: "Comfort Essentials",
-    description:
-      "Clean and comfortable rooms with all the essentials for a restful stay. Perfect for budget-conscious travellers and pilgrims.",
-    coverImage: "/room-ordinary.jpg",
-    washroom: [],
-    subCategories: [
-      {
-        name: "double",
-        label: "Double Bed",
-        icon: Bed,
-        description: "Cosy double bed room with fresh linens, ceiling fan, TV, and attached bathroom.",
-        images: ["/room-ordinary.jpg"],
-        features: ["Double Bed", "Ceiling Fan", "TV", "Attached Bathroom", "Hot Water"],
-      },
-      {
-        name: "triple",
-        label: "Triple Bed",
-        icon: Users,
-        description: "Spacious room with three beds — ideal for small groups or families on a budget.",
-        images: ["/room-ordinary.jpg"],
-        features: ["Three Beds", "Ceiling Fan", "TV", "Attached Bathroom", "Hot Water"],
-      },
-      {
-        name: "four",
-        label: "Four Bed",
-        icon: Users,
-        description: "Our largest ordinary room, accommodating four guests comfortably.",
-        images: ["/room-ordinary.jpg"],
-        features: ["Four Beds", "Ceiling Fan", "TV", "Attached Bathroom", "Hot Water"],
-      },
-    ],
-  },
-  {
     name: "Standard",
     tagline: "Elevated Comfort",
     description:
-      "Step up to modern amenities with air conditioning, flat-screen TV, Wi-Fi, and premium furnishings — ideal for families and couples.",
-    coverImage: "/room-standard.jpg",
-    washroom: [],
+      "Step up to modern amenities with AC and Non-AC options, flat-screen TV, Wi-Fi, and scenic hill views — ideal for families, couples, and pilgrims.",
+    coverImage: "/standard-doublebed.jpeg",
+    washroom: ["/standard-washroom.jpeg"],
     subCategories: [
       {
         name: "double",
         label: "Double Bed",
         icon: Bed,
-        description: "Comfortable queen-sized bed with AC, flat-screen TV, and modern decor.",
-        images: ["/room-standard.jpg"],
-        features: ["Queen Bed", "Air Conditioning", "Flat-Screen TV", "Wi-Fi", "Room Service"],
+        description: "Comfortable double bed room with AC/Non-AC options, scenic hill view, flat-screen TV, and clean attached bathroom.",
+        images: ["/standard-doublebed.jpeg", "/gallery-view.jpeg"],
+        features: ["Double Bed", "AC & Non-AC Available", "Scenic Hill View", "Flat-Screen TV", "Attached Bath", "Room Service"],
       },
       {
         name: "triple",
         label: "Triple Bed",
         icon: Users,
-        description: "Standard triple bed room with all modern amenities for group stays.",
-        images: ["/room-standard.jpg"],
-        features: ["Three Beds", "Air Conditioning", "Flat-Screen TV", "Wi-Fi", "Room Service"],
+        description: "Standard triple bed room with modern amenities, AC/Non-AC choice, and comfortable spacing for group stays.",
+        images: ["/standard-doublebed.jpeg", "/gallery-view.jpeg"],
+        features: ["Three Beds", "AC & Non-AC Available", "Flat-Screen TV", "Wi-Fi", "Attached Bath", "Room Service"],
       },
       {
         name: "four",
         label: "Four Bed",
         icon: Users,
-        description: "Spacious four-bed standard room — great for families and larger groups.",
-        images: ["/room-standard.jpg"],
-        features: ["Four Beds", "Air Conditioning", "Flat-Screen TV", "Wi-Fi", "Room Service"],
+        description: "Spacious four-bed standard room with modern amenities — great for families and pilgrim groups.",
+        images: ["/standard-doublebed.jpeg", "/gallery-view.jpeg"],
+        features: ["Four Beds", "AC & Non-AC Available", "Flat-Screen TV", "Wi-Fi", "Attached Bath", "Room Service"],
       },
     ],
   },
@@ -94,7 +60,7 @@ const roomCategories: RoomCategory[] = [
     name: "Deluxe",
     tagline: "Premium Luxury",
     description:
-      "Indulge in our finest rooms with premium furnishings, elegant interiors, and top-tier amenities for the most discerning guests.",
+      "Indulge in our finest rooms with premium furnishings, elegant interiors, AC/Non-AC options, and top-tier amenities for a rejuvenating stay.",
     coverImage: "/deluxe-doublebed.jpeg",
     washroom: ["/deluxe-washroom.jpeg", "/deluxe-washroom2.jpeg"],
     subCategories: [
@@ -102,17 +68,17 @@ const roomCategories: RoomCategory[] = [
         name: "double",
         label: "Double Bed",
         icon: Bed,
-        description: "Elegant double bed room with premium furnishings and luxurious bath amenities.",
+        description: "Elegant double bed room with premium furnishings, AC/Non-AC options, and luxurious bath amenities.",
         images: ["/deluxe-doublebed.jpeg", "/deluxe-doublebed2.jpeg"],
-        features: ["King Bed", "Premium Bath", "Mini Bar", "Room Service", "Mountain View"],
+        features: ["King Bed", "AC & Non-AC Available", "Premium Bath", "Mini Bar", "Room Service", "Mountain View"],
       },
       {
         name: "triple",
         label: "Triple Bed",
         icon: Users,
-        description: "Spacious deluxe triple room — perfect for families who don't compromise on luxury.",
+        description: "Spacious deluxe triple room — perfect for families who appreciate extra comfort and fine decor.",
         images: ["/deluxe-triplebed.jpeg"],
-        features: ["Three Beds", "Premium Bath", "Mini Bar", "Room Service", "Lounge Area"],
+        features: ["Three Beds", "AC & Non-AC Available", "Premium Bath", "Room Service", "Lounge Area"],
       },
       {
         name: "four",
@@ -120,7 +86,7 @@ const roomCategories: RoomCategory[] = [
         icon: Users,
         description: "Our largest deluxe offering with four beds, ideal for group pilgrimages or family gatherings.",
         images: ["/deluxe-fourbed.jpeg"],
-        features: ["Four Beds", "Premium Bath", "Mini Bar", "Room Service", "Lounge Area"],
+        features: ["Four Beds", "AC & Non-AC Available", "Premium Bath", "Room Service", "Lounge Area"],
       },
     ],
   },
@@ -151,6 +117,8 @@ function ImageCarousel({ images, alt }: { images: string[]; alt: string }) {
             src={src}
             alt={`${alt} - Photo ${i + 1}`}
             className="h-full w-full flex-shrink-0 object-cover"
+            loading={i === 0 ? "eager" : "lazy"}
+            decoding="async"
           />
         ))}
       </div>
@@ -159,14 +127,14 @@ function ImageCarousel({ images, alt }: { images: string[]; alt: string }) {
         <>
           <button
             onClick={prev}
-            className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center justify-center size-9 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 hover:bg-black/60 hover:scale-110"
+            className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center justify-center size-9 rounded-full bg-white/90 border border-stone-200 text-stone-800 opacity-0 group-hover/carousel:opacity-100 transition-all duration-200 hover:bg-white hover:scale-105 shadow-md"
             aria-label="Previous image"
           >
             <ChevronLeft className="size-4" />
           </button>
           <button
             onClick={next}
-            className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center size-9 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 hover:bg-black/60 hover:scale-110"
+            className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center size-9 rounded-full bg-white/90 border border-stone-200 text-stone-800 opacity-0 group-hover/carousel:opacity-100 transition-all duration-200 hover:bg-white hover:scale-105 shadow-md"
             aria-label="Next image"
           >
             <ChevronRight className="size-4" />
@@ -182,8 +150,8 @@ function ImageCarousel({ images, alt }: { images: string[]; alt: string }) {
               onClick={() => setCurrent(i)}
               className={`h-1.5 rounded-full transition-all duration-300 ${
                 i === current
-                  ? "w-6 bg-amber-400"
-                  : "w-1.5 bg-white/40 hover:bg-white/60"
+                  ? "w-6 bg-white shadow-sm"
+                  : "w-1.5 bg-white/60 hover:bg-white/90"
               }`}
               aria-label={`Go to image ${i + 1}`}
             />
@@ -198,22 +166,6 @@ export default function RoomsSection() {
   const [activeCategory, setActiveCategory] = useState(0)
   const [activeSubCategory, setActiveSubCategory] = useState(0)
   const [showWashroom, setShowWashroom] = useState(false)
-  const headingRef = useRef<HTMLDivElement>(null)
-  const [headingVisible, setHeadingVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHeadingVisible(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.3 }
-    )
-    if (headingRef.current) observer.observe(headingRef.current)
-    return () => observer.disconnect()
-  }, [])
 
   useEffect(() => {
     setActiveSubCategory(0)
@@ -227,51 +179,32 @@ export default function RoomsSection() {
     : subCat.images
 
   return (
-    <section id="rooms" className="relative bg-neutral-950 py-24 md:py-32 overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 1px)`,
-          backgroundSize: "40px 40px",
-        }}
-      />
-
+    <section id="rooms" className="relative bg-[#FAF8F5] py-20 md:py-28 overflow-hidden border-t border-stone-200/60">
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <div
-          ref={headingRef}
-          className={`text-center mb-16 transition-all duration-1000 ${
-            headingVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <span className="text-xs font-light tracking-[0.6em] text-amber-400/70 uppercase">
+        <div className="text-center mb-12">
+          <span className="text-xs font-semibold tracking-[0.25em] text-[#8C6A3C] uppercase">
             Accommodation
           </span>
-          <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+          <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold text-stone-900 tracking-tight">
             Our Rooms
           </h2>
-          <div className="mt-4 mx-auto flex items-center justify-center gap-3">
-            <span className="h-px w-12 bg-gradient-to-r from-transparent to-amber-400/50" />
-            <svg className="size-2.5 text-amber-400/60" viewBox="0 0 12 12" fill="currentColor">
-              <rect x="2" y="2" width="8" height="8" rx="1" transform="rotate(45 6 6)" />
-            </svg>
-            <span className="h-px w-12 bg-gradient-to-l from-transparent to-amber-400/50" />
-          </div>
-          <p className="mt-6 mx-auto max-w-xl text-white/50 text-base leading-relaxed">
-            Choose from our thoughtfully designed rooms, each offering a unique
-            blend of comfort and elegance for every traveller.
+          <div className="mt-3 mx-auto h-0.5 w-12 bg-[#8C6A3C]/40 rounded-full" />
+          <p className="mt-4 mx-auto max-w-xl text-stone-600 text-base leading-relaxed">
+            Choose from our thoughtfully designed rooms, offering the right balance
+            of comfort, cleanliness, and value for every traveller.
           </p>
         </div>
 
         <div className="flex justify-center mb-10">
-          <div className="inline-flex rounded-full border border-white/10 bg-white/[0.03] p-1.5 backdrop-blur-sm">
+          <div className="inline-flex rounded-full border border-stone-200 bg-stone-100/90 p-1.5 shadow-xs">
             {roomCategories.map((cat, i) => (
               <button
                 key={cat.name}
                 onClick={() => setActiveCategory(i)}
-                className={`relative px-6 md:px-8 py-3 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 ${
+                className={`relative px-6 md:px-8 py-2.5 rounded-full text-sm font-semibold tracking-wide transition-all duration-200 ${
                   activeCategory === i
-                    ? "bg-amber-400 text-neutral-900 shadow-[0_0_20px_rgba(251,191,36,0.2)]"
-                    : "text-white/60 hover:text-white hover:bg-white/5"
+                    ? "bg-white text-stone-900 shadow-xs"
+                    : "text-stone-600 hover:text-stone-900 hover:bg-white/50"
                 }`}
               >
                 {cat.name}
@@ -281,17 +214,17 @@ export default function RoomsSection() {
         </div>
 
         <div className="text-center mb-10">
-          <p className="text-xs tracking-[0.4em] text-amber-400/60 uppercase mb-2">
+          <p className="text-xs font-semibold tracking-[0.2em] text-[#8C6A3C] uppercase mb-1.5">
             {category.tagline}
           </p>
-          <p className="mx-auto max-w-2xl text-white/45 text-sm leading-relaxed">
+          <p className="mx-auto max-w-2xl text-stone-600 text-sm leading-relaxed">
             {category.description}
           </p>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
           <div className="lg:w-3/5">
-            <div className="h-72 sm:h-80 md:h-96 lg:h-[480px] rounded-2xl overflow-hidden border border-white/[0.06]">
+            <div className="h-72 sm:h-80 md:h-96 lg:h-[480px] rounded-2xl overflow-hidden border border-stone-200 shadow-sm bg-stone-100">
               <ImageCarousel
                 key={`${activeCategory}-${activeSubCategory}-${showWashroom}`}
                 images={displayImages.length > 0 ? displayImages : [category.coverImage]}
@@ -309,10 +242,10 @@ export default function RoomsSection() {
                     setActiveSubCategory(i)
                     setShowWashroom(false)
                   }}
-                  className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-300 border ${
+                  className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-200 border ${
                     activeSubCategory === i && !showWashroom
-                      ? "border-amber-400/50 bg-amber-400/10 text-amber-300"
-                      : "border-white/[0.06] bg-white/[0.02] text-white/50 hover:text-white/70 hover:bg-white/[0.04]"
+                      ? "border-[#8C6A3C] bg-[#8C6A3C] text-white shadow-xs"
+                      : "border-stone-200 bg-white text-stone-700 hover:bg-stone-50 hover:border-stone-300"
                   }`}
                 >
                   <sub.icon className="size-4" />
@@ -322,10 +255,10 @@ export default function RoomsSection() {
               {category.washroom.length > 0 && (
                 <button
                   onClick={() => setShowWashroom(true)}
-                  className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-300 border ${
+                  className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-200 border ${
                     showWashroom
-                      ? "border-amber-400/50 bg-amber-400/10 text-amber-300"
-                      : "border-white/[0.06] bg-white/[0.02] text-white/50 hover:text-white/70 hover:bg-white/[0.04]"
+                      ? "border-[#8C6A3C] bg-[#8C6A3C] text-white shadow-xs"
+                      : "border-stone-200 bg-white text-stone-700 hover:bg-stone-50 hover:border-stone-300"
                   }`}
                 >
                   <Bath className="size-4" />
@@ -336,11 +269,11 @@ export default function RoomsSection() {
 
             <div className="flex-1 flex flex-col items-center lg:items-start w-full">
               {showWashroom ? (
-                <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 w-full flex flex-col items-center lg:items-start">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-3">
+                <div className="w-full flex flex-col items-center lg:items-start">
+                  <h3 className="text-2xl md:text-3xl font-bold text-stone-900 tracking-tight mb-2">
                     {category.name} Washroom
                   </h3>
-                  <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-md">
+                  <p className="text-stone-600 text-sm leading-relaxed mb-6 max-w-md">
                     All {category.name.toLowerCase()} rooms feature clean, modern
                     attached washrooms with hot water, fresh towels, and quality
                     toiletries for a refreshing stay.
@@ -349,15 +282,15 @@ export default function RoomsSection() {
               ) : (
                 <div
                   key={`${activeCategory}-${activeSubCategory}`}
-                  className="animate-in fade-in slide-in-from-bottom-4 duration-500 w-full flex flex-col items-center lg:items-start"
+                  className="w-full flex flex-col items-center lg:items-start"
                 >
-                  <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-1">
+                  <h3 className="text-2xl md:text-3xl font-bold text-stone-900 tracking-tight mb-1">
                     {category.name} — {subCat.label}
                   </h3>
-                  <p className="text-xs tracking-[0.3em] text-amber-400/50 uppercase mb-4">
+                  <p className="text-xs font-medium tracking-[0.2em] text-stone-500 uppercase mb-3">
                     {category.tagline}
                   </p>
-                  <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-md">
+                  <p className="text-stone-600 text-sm leading-relaxed mb-6 max-w-md">
                     {subCat.description}
                   </p>
 
@@ -365,7 +298,7 @@ export default function RoomsSection() {
                     {subCat.features.map((feat) => (
                       <span
                         key={feat}
-                        className="inline-flex items-center rounded-full border border-white/[0.08] bg-white/[0.03] px-3.5 py-1.5 text-xs font-medium text-white/60"
+                        className="inline-flex items-center rounded-full border border-stone-200 bg-stone-100 px-3.5 py-1.5 text-xs font-medium text-stone-700"
                       >
                         {feat}
                       </span>
@@ -377,27 +310,27 @@ export default function RoomsSection() {
               <div className="mt-auto w-full flex justify-center lg:justify-start">
                 <a
                   href="#enquire"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-amber-400/10 border border-amber-400/30 px-6 py-3 text-sm font-semibold text-amber-300 transition-all duration-300 hover:bg-amber-400/20 hover:border-amber-400/60 hover:gap-3 group"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#8C6A3C] px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-[#785930] hover:gap-3 group shadow-xs"
                 >
                   Book {category.name} Room
-                  <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </a>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-20 flex flex-col sm:flex-row items-center justify-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm px-8 py-6">
+        <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4 rounded-2xl border border-stone-200 bg-white p-6 shadow-xs">
           <div className="flex items-center gap-3">
-            <div className="flex items-center justify-center size-12 rounded-full bg-amber-400/10 border border-amber-400/20">
-              <Car className="size-5 text-amber-400" />
+            <div className="flex items-center justify-center size-12 rounded-full bg-[#8C6A3C]/10 border border-[#8C6A3C]/20">
+              <Car className="size-5 text-[#8C6A3C]" />
             </div>
             <div>
-              <h4 className="text-white font-semibold text-lg">
+              <h4 className="text-stone-900 font-semibold text-base md:text-lg">
                 Ample Parking Available
               </h4>
-              <p className="text-white/50 text-sm">
-                Free, spacious parking for all our guests
+              <p className="text-stone-600 text-sm">
+                Free, secure parking for all our guests
               </p>
             </div>
           </div>
