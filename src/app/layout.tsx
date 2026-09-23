@@ -19,6 +19,17 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Hotel Yamuna — Luxury & Comfort",
   description: "Experience unparalleled luxury on the banks of the Yamuna. Where timeless elegance meets warm Indian hospitality.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -31,7 +42,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <link rel="preload" href="/outer-video.mp4" as="video" type="video/mp4" />
         <meta name="google-site-verification" content="BwO1Miy7f7thrUoJwDa-ReUYGZJRffVBdXY9d2wBJKs" />
       </head>
-      <body className="min-h-full flex flex-col bg-[#FAF8F5] text-stone-900">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#FAF8F5] text-stone-900">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
